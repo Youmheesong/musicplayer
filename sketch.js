@@ -1,40 +1,29 @@
-let mySound;
-function setup(){
-    soundFormats('mp3','ogg');
-    mySound = loadSound('Pink Venom');
-    mySound.play();
+let musicFile;
+let button;
+function setup()
+{
+    createCanvas(640, 480);
+    soundFormats('mp3', 'ogg');
+    musicFile = loadSound('music',loadMusic);
+    button = createButton('play');
+    button.mousePressed(togglePlaying);
+}
+function togglePlaying(){
+    if(!musicFile.isPlaying()){
+        musicFile.play();
+        button.html('pause');
+    }else{
+        musicFile.stop();
+        button.html('playback');
+    }
 }
 
-function loadmusic(){
-    mySound.play();
-    }
+function loadMusic()
+{
+    console.log("It's Working");
+}
 
 function draw(){
     fill(255,0,0);
     ellipse(50,50,100,100);
-}
-
-var song;
-var button;
-
-function setup(){
-    createCanvas(200,200);
-    song = loadSound('Pink Venom.mp3',loaded);
-    button.mousePressed (togglePlaying);
-    background(51);
-}
-
-function togglePlaying(){
-    if(!song.isPlaying()){
-        song.play();
-        song.setVolume(0.3);
-        button.html('pause');
-    }else{
-        song.stop();
-        button.html('play');
-    }
-}
-
-function loaded(){
-    console.log('loaded');
 }
