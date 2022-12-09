@@ -20,60 +20,190 @@ function setup()
     button = createButton("play");
     button.mousePressed(togglePlaying1);
 
-    button2 = createButton("Cookieee");
+    button2 = createButton("music");
     button2.mousePressed(togglePlaying2);
-    music = 1;
 
+    // button3 = createButton("attention");
+    // button3.mousePressed(togglePlaying3);
+
+    jumpButton = createButton("jump");
+    jumpButton.mousePressed(togglePlaying4);
+    music = 1;
+ 
     amp = new p5.Amplitude();
 }
 
+// function togglePlaying1(){
+//     if(music === 1){
+//         if(!musicFile.isPlaying()){
+//             // rB=musicFile.reverseBuffer();
+//             musicFile.setVolume(0.5);
+//             musicFile.rate(1);
+//             musicFile.play();
+//             button.html('멈춘다');
+//         }else{
+//             musicFile.stop();
+//             button.html('노래시작!');
+//         }
+//     }
+//     if(music === 2){
+//         if(!musicFile2.isPlaying())
+//         //rB=musicFile.reverseBuffer();
+//         // musicFile2.jump(200);
+//         musicFile2.setVolume(0.5);
+//         musicFile2.rate(1);
+//         musicFile2.play();
+//         button.html('pause');
+//     }else{
+//         musicFile2.stop();
+//         button.html('노래 스타트');
+//     }
 function togglePlaying1(){
     if(music === 1){
         if(!musicFile.isPlaying()){
-            // rB=musicFile.reverseBuffer();
-            musicFile.setVolume(0.5);
-            musicFile.rate(1);
             musicFile.play();
-            button.html('멈춘다');
+            button.html('pause');
         }else{
             musicFile.stop();
-            button.html('노래시작!');
+            button.html('play');
         }
     }
     if(music === 2){
-        if(!musicFile2.isPlaying())
-        //rB=musicFile.reverseBuffer();
-        musicFile2.jump(200);
-        musicFile2.setVolume(0.5);
-        musicFile.rate(1);
-        musicFile2.play();
-        button.html('스탑');
-    }else{
-        musicFile2.stop();
-        button.html('노래 스타트');
+        if(!musicFile2.isPlaying()){
+            musicFile2.play();
+            button.html('pause');
+        }else{
+            musicFile2.stop();
+            button.html('play');
+        }
     }
 }
+//     if(music === 1){
+//         music = 2;
+//         button2.html('attenTION~');
+//         musicFile.stop();
+//         button.html('노래시작!');
+//     }
+//     if(music === 2){
+//         music = 1;
+//         button2.html('Cookieeee');
+//         musicFile2.stop();
+//         button.html('노래 스타트');
 
 function togglePlaying2(){
     if(music === 1){
         music = 2;
-        button2.html('attenTION~');
+        button2.html('attention');
     }else{
         music = 1;
-        button2.html('Cookieeee');
+        button2.html('cookieee');
     }
-    console.log(노래나옴);
+
+    }
+
+
+// function togglePlaying3(){
+//     if(music === 1){
+//         button3.html('attention');
+//         }
+//     }
+
+
+
+function togglePlaying4(){
+    if(music === 1){
+        button4.html('jump');
+    }
 }
 
- function loadMusic()
- {
+function loadMusic(){
     console.log("It's Working!!!!!");
- }
+}
 
- function draw(){
-    console.log(amp.getLevel(), musicFile.duration());
-
-    fill(255,0,220);
-    ellipse(musicFile.currentTime()*20,480-amp.getLevel()*1000,20,20);
+function draw(){
+        console.log(amp.getLevel(), musicFile.duration());
     
- }
+        fill(255,0,220);
+        ellipse(musicFile.currentTime()*20,480-amp.getLevel()*1000,20,20);
+}
+
+
+
+// function togglePlaying1(){
+//     if(music === 1){
+//         if(!musicFile.isPlaying()){
+//             // rB=musicFile.reverseBuffer();
+//             musicFile.setVolume(0.5);
+//             musicFile.rate(1);
+//             musicFile.play();
+//             button.html('멈춘다');
+//         }else{
+//             musicFile.stop();
+//             button.html('노래시작!');
+//         }
+//     }
+//     if(music === 2){
+//         if(!musicFile2.isPlaying())
+//         //rB=musicFile.reverseBuffer();
+//         // musicFile2.jump(200);
+//         musicFile2.setVolume(0.5);
+//         musicFile2.rate(1);
+//         musicFile2.play();
+//         button.html('pause');
+//     }else{
+//         musicFile2.stop();
+//         button.html('노래 스타트');
+//     }
+// } 
+
+// function togglePlaying2(){
+//     if(music === 1){
+//         music = 2;
+//         button2.html('attenTION~');
+//         musicFile.stop();
+//         button.html('노래시작!');
+//     }
+//     if(music === 2){
+//         music = 1;
+//         button2.html('Cookieeee');
+//         musicFile2.stop();
+//         button.html('노래 스타트');
+//     }
+// }
+
+//  function loadMusic()
+//  {
+//     console.log("It's Working!!!!!");
+//  }
+
+//  function draw(){
+//     console.log(amp.getLevel(), musicFile.duration());
+
+//     fill(255,0,220);
+//     ellipse(musicFile.currentTime()*20,480-amp.getLevel()*1000,20,20);
+
+//     if(music === 1){
+//         if(!musicFile.isPlaying()){
+//             // rB=musicFile.reverseBuffer();
+//             // musicFile.setVolume(0.5);
+//             // musicFile.rate(1);
+//             // musicFile.play();
+//             button.html('멈춘다');
+//         }else{
+//             // musicFile.stop();
+//             button.html('노래시작!');
+//         }
+//     }
+//     if(music === 2){
+//         if(!musicFile2.isPlaying())
+//         //rB=musicFile.reverseBuffer();
+//         // musicFile2.jump(200);
+//         // musicFile2.setVolume(0.5);
+//         // musicFile2.rate(1);
+//         // musicFile2.play();
+//         button.html('pause');
+//         }else{
+//     //     musicFile2.stop();
+//         button.html('노래 스타트');
+//     }
+//  }
